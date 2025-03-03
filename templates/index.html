@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age & Gender Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { margin-top: 50px; }
+        img { width: 200px; margin-top: 20px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload an Image for Age & Gender Prediction</h2>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Upload & Predict</button>
+        </form>
+
+        {% if image_url %}
+        <h3>Prediction Results:</h3>
+        <img src="{{ image_url }}" alt="Uploaded Image">
+        <p><strong>Predicted Age:</strong> {{ predicted_age }}</p>
+        <p><strong>Predicted Gender:</strong> {{ predicted_gender }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
